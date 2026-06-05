@@ -2,6 +2,9 @@ from flask import Flask, render_template_string, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 
+
+
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "forumsecret"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///forum.db"
