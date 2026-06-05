@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Forum</h1>
+
+{% for post in posts %}
+<div class="card">
+    <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
+    <p>{{post.content[:120]}}...</p>
+    <p class="small">
+        By <a href="/profile/{{post.author}}">{{post.author}}</a>
+        • {{post.created_at}}
+    </p>
+
+    {% if current_user.is_authenticated and current_user.username == post.author %}
+        <a href="/delete_post/{{post.id}}">
+            <button>Delete</button>
+        </a>
+    {% endif %}
+</div>
+{% endfor %}
+
+{% endblock %}
